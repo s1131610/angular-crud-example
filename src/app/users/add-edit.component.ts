@@ -33,15 +33,12 @@ export class AddEditComponent implements OnInit {
         }
 
         this.form = this.formBuilder.group({
-            title: ['', Validators.required],
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
-            role: ['', Validators.required],
-            password: ['', [Validators.minLength(6), this.isAddMode ? Validators.required : Validators.nullValidator]],
-            confirmPassword: ['', this.isAddMode ? Validators.required : Validators.nullValidator]
-        }, {
-            validator: MustMatch('password', 'confirmPassword')
+            eventName: ['', Validators.required],
+            description: [''],
+            address: [''],
+            city: [''],
+            state: ['', Validators.maxLength(2)],
+            zip: ['', Validators.maxLength(5)]
         });
 
         if (!this.isAddMode) {
